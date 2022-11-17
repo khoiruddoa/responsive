@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>belajar-tailwind</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+      tailwind.config = {
+        theme: {
+          container: {
+            center: true,
+            screens: {
+              lg: "1170px",
+            },
+          },
+          extend: {
+            colors: {
+              clifford: "#da373d",
+              blues: "#217BF4",
+            },
+            fontFamily: {
+              inter: ["Inter"],
+            },
+          },
+        },
+      };
+    </script>
+    <style type="text/tailwindcss">
+      @layer utilities {
+        input {
+          font-family: "Inter";
+        }
+        #header .menu-navigation a,
+        #header .menu-navigation a.active {
+          font-style: normal;
+          font-weight: 500;
+          font-size: 14px;
+          line-height: 14px;
+
+          letter-spacing: 0.01em;
+
+          color: #656464;
+        }
+        #header .menu-navigation a.active {
+          font-weight: 600;
+          color: #2b2b39;
+        }
+        .container {
+          padding: 0 20px;
+        }
+      }
+    </style>
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/flowbite@1.5.4/dist/flowbite.min.css"
+    />
+  </head>
+  <body>
+    <nav id="header" class="w-full border-b-[1px] fixed">
+      <div
+        class="container bg-white flex flex-wrap lg:flex-nowrap justify-between items-center pt-[22px] pb-[26px] gap-[22px]"
+      >
+        <div class="img-box lg:mb-0 lg:mt-0 mt-4 mb-4">
+          <img src="./assets/images/logo.png" alt="logo" />
+        </div>
+        <button
+          data-collapse-toggle="navbar-defaults"
+          type="button"
+          class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+          aria-controls="navbar-defaults"
+          aria-expanded="false"
+        >
+          <span class="sr-only">Open main menu</span>
+          <svg
+            class="w-6 h-6"
+            aria-hidden="true"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+              clip-rule="evenodd"
+            ></path>
+          </svg>
+        </button>
+        <div
+          id="navbar-defaults"
+          class="hidden lg:block w-full lg:pt-5 lg:pb-5"
+        >
+          <div
+            class="flex flex-col items-center justify-between gap-[5px] md:flex-row"
+          >
+            <!-- left -->
+            <div class="menu-navigation flex items-center gap-[70px]">
+              <ul class="flex flex-col md:flex-row items-center gap-8">
+                <li><a href="#" class="active">Home</a></li>
+                <li>
+                  <div class="item-dropdown flex gap-[5px]">
+                    <a href="#" class="">Community</a
+                    ><img
+                      src="./assets/images/Carret-down.png"
+                      alt=""
+                      class="object-contain"
+                    />
+                  </div>
+                </li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Events</a></li>
+              </ul>
+            </div>
+
+            <!-- right -->
+            <div
+              class="menu-action flex justify-between flex-col md:flex-row items-center gap-[47px]"
+            >
+              <div
+                class="search-box flex items-center md:flex-row gap-[8px] border-b-[1px] pb-[18px]"
+              >
+                <div class="img-box">
+                  <img src="./assets/images/MagnifyingGlass.png" />
+                </div>
+                <div>
+                  <form action="#">
+                    <input
+                      type="text"
+                      class="text-xs bg-transparent border-transparent"
+                      placeholder="Search here..."
+                    />
+                  </form>
+                </div>
+              </div>
+              <div class="button-box">
+                <button
+                  class="lg:mb-0 mb-[20px] bg-blue-600 rounded-[14px] pl-11 pr-[43px] pt-[18px] pb-[18px] text-white leading-3 text-[12px] font-semibold hover:bg-blue-800"
+                >
+                  <h1>Login</h1>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <section
+      id="hero"
+      class="pt-[90px] bg-gradient-to-tl from-[#D4E7FE] to-[#ffffff] border-b-[1px]"
+    >
+      <div
+        class="container flex flex-wrap-reverse lg:flex-nowrap justify-center lg:justify-between items-center"
+      >
+        <div
+          class="left lg:w-[515px] lg:h-[370px] mt-[125px] flex flex-col justify-center items-center lg:justify-start lg:items-start"
+        >
+          <div
+            class="netbook px-[30px] py-[12px] mb-[20px] bg-blues bg-opacity-10 lg:w-[177px] rounded-[8px] text-blues text-xs hover:bg-opacity-30"
+          >
+            <a href="#">Netbook community</a>
+          </div>
+          <div
+            class="solution mb-[18px] font-[700] text-[56px] leading-[66px] mt-[-10px] text-center lg:text-left"
+          >
+            Your Solutions For Community!
+          </div>
+          <div
+            class="more mb-[42px] font-[400px] text-[18px] leading-[28px] text-[#656464] lg:w-[491px] lg:text-left text-center"
+          >
+            More than 2 billion people in over countries use socibook to stay in
+            touch with friends & family.
+          </div>
+          <div
+            class="button flex flex-col lg:flex-row md:flex-row gap-[18px] md:pb-2"
+          >
+            <div
+              class="button-invite px-[42px] py-[24px] border-[1px] border-blues rounded-[14px] text-blues hover:bg-blues hover:text-white"
+            >
+              About More
+            </div>
+            <div
+              class="button-invite lg:mb-0 md:mb-0 mb-3 px-[42px] py-[24px] border-[1px] border-blues rounded-[14px] text-blues hover:bg-blues hover:text-white"
+            >
+              Invite Friend
+            </div>
+          </div>
+        </div>
+        <div class="right mt-[72px] mb-[82px]">
+          <img src="./assets/images/Iamge.png" alt="" class="hover:scale-110" />
+        </div>
+      </div>
+    </section>
+    <section id="why-joint">
+      <div
+        class="container mt-[96px] lg:h-[576px] flex flex-wrap lg:flex-nowrap items-center justify-center"
+      >
+        <div
+          class="left lg:w-[406px] lg:mt-[96px] flex flex-col lg:justify-start justify-center items-center lg:items-start"
+        >
+          <div
+            class="whats-net font-[500] leading-[18px] text-lg text-blues mb-[10px] lg:text-left text-center"
+          >
+            Whats Netboks?
+          </div>
+          <div
+            class="why font-[700] leading-[48px] text-4xl mb-4 lg:text-left text-center"
+          >
+            Why Join to Netbook Social Network?
+          </div>
+          <div
+            class="recent font-[400] leading-7 text-base text-[#656464] mb-[36px] lg:text-left text-center"
+          >
+            Recent surveys have indicated that small businesses recognise the
+            need they have to connect with consumer.
+          </div>
+          <div class="ul-li font-[500] text-lg leading-[18px] font-[#171648]">
+            <ul class="gap-[15px]">
+              <li class="mb-[15px] flex gap-3">
+                <img src="./assets/images/ellipse.png" alt="picture" /> Groups
+              </li>
+              <li class="mb-[15px] flex gap-3">
+                <img src="./assets/images/ellipse.png" alt="picture" />Message
+              </li>
+              <li class="flex gap-3">
+                <img src="./assets/images/ellipse.png" alt="picture" />Share
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="right mt-[34px] lg:ml-[200px] flex gap-[29px] flex-wrap lg:flex-nowrap lg:justify-between justify-center items-center lg:pl-11"
+        >
+          <div class="picture1">
+            <img src="./assets/images/picture1.png" alt="picture" />
+          </div>
+          <div class="picture2 flex flex-col gap-8">
+            <div class="picture-a">
+              <img src="./assets/images/picture-a.png" alt="picture" />
+            </div>
+            <div class="picture-b">
+              <img src="./assets/images/picture-b.png" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="rating">
+      <div
+        class="container lg:mt-[21px] lg:pt-[75px] lg:pb-[75px] flex flex-col lg:flex-row mt-[100px] md:mt-[100px] lg:gap-0 gap-3 md:justify-center md:items-center"
+      >
+        <div
+          class="rating lg:w-[336px] lg:mr-6 pl-[44px] pr-[18px] pt-[42px] pb-10 border-[1px] rounded-[14px] hover:shadow-2xl"
+        >
+          <div class="star flex items-center gap-[10px] mb-[32px]">
+            <img src="./assets/images/star.png" alt="" />
+            <h2 class="font-[500] text-lg leading-5 text-[#0A093D]">
+              4.8 Rating
+            </h2>
+          </div>
+          <div class="member flex gap-4 items-center mb-10">
+            <div class="image-circle flex">
+              <img src="./assets/images/photo-1.png" alt="" />
+              <img src="./assets/images/photo-2.png" alt="" class="-ml-2" />
+              <img src="./assets/images/photo-3.png" alt="" class="-ml-2" />
+            </div>
+            <div class="836">
+              <h1 class="font-[500] text-base leading-[18px] text-[#5D5B70]">
+                <span
+                  class="font-[600] text-base leading-[18px] text-[#217BF4] tracking-wide"
+                  >+836k</span
+                >
+                Members
+              </h1>
+            </div>
+          </div>
+          <div
+            class="content mb-10 font-[400px] text-base leading-[26px] text-[#8C8C8C]"
+          >
+            <p>
+              More than 2 billion we people over countries use socibooks we to
+              stay in touch with friends.
+            </p>
+          </div>
+          <div class="footer flex items-center gap-2">
+            <h3 class="font-[500] text-base leading-4 text-[#217BF4]">
+              Join Our Community
+            </h3>
+            <img src="./assets/images/ArrowRight.png" />
+          </div>
+        </div>
+        <div
+          class="Awward lg:w-[336px] pl-[44px] pr-[18px] pt-[42px] pb-10 border-[1px] rounded-[14px] hover:shadow-2xl"
+        >
+          <div class="star flex items-center gap-[10px] mb-[32px]">
+            <img src="./assets/images/Trophy.png" alt="" />
+            <h2 class="font-[500] text-lg leading-5 text-[#0A093D]">
+              Awwwards
+            </h2>
+          </div>
+          <div class="member flex gap-4 items-center mb-10">
+            <div class="image-circle flex">
+              <img src="./assets/images/github.png" alt="" />
+            </div>
+            <div class="836">
+              <h1 class="font-[500] text-base leading-[18px] text-[#5D5B70]">
+                Best of
+                <span
+                  class="font-[600] text-base leading-[18px] text-[#217BF4] tracking-wide"
+                  >2021</span
+                >
+                on Github
+              </h1>
+            </div>
+          </div>
+          <div
+            class="content mb-10 font-[400px] text-base leading-[26px] text-[#8C8C8C]"
+          >
+            <p>
+              More than 2 billion we people over countries use socibooks we to
+              stay in touch with friends.
+            </p>
+          </div>
+          <div class="footer flex items-center gap-2">
+            <h3 class="font-[500] text-base leading-4 text-[#4A4A56 ]">
+              Go To Awards
+            </h3>
+            <img src="./assets/images/ArrowRightBlack.png" />
+          </div>
+        </div>
+        <div
+          class="achievement lg:ml-[93px] lg:w-[381px] lg:mt-0 flex flex-col lg:items-start lg:justify-start justify-center items-center"
+        >
+          <div class="head mb-[10px] lg:mt-0 mt-10">
+            <h3 class="font-[500] text-lg leading-[18px] text-[#217BF4]">
+              Our Achievement
+            </h3>
+          </div>
+          <div class="title mb-[18px]">
+            <h1
+              class="font-[700] text-4xl leading-[48px] lg:text-left text-center"
+            >
+              We are Connecting You The Digital Life.
+            </h1>
+          </div>
+          <div class="content mb-[38px]">
+            <p
+              class="w-[365px] font-[400] text-base leading-[28px] text-[#656464] lg:text-left text-center"
+            >
+              The scope the Social Media becomes crucial Is helps the business
+              to directly engage with their needs and wants.
+            </p>
+          </div>
+          <div
+            class="button flex flex-row bg-blues rounded-[14px] px-[38px] py-[22px] w-[192px] hover:bg-blue-700"
+          >
+            <a
+              href="#"
+              class="flex gap-5 font-[500] text-sm leading-[14px] text-center tracking-wide text-white"
+              >Discover me <img src="./assets/images/white-arow.png" alt=""
+            /></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="community">
+      <div class="container flex flex-col justify-center items-center">
+        <div class="community mt-[60px] text-center mb-[64px]">
+          <h2
+            class="mb-[9px] font-[500]text-[18px] leading-[18px] text-[#217BF4]"
+          >
+            Our Community
+          </h2>
+          <h1 class="mb-[19px] font-[700] text-4xl leading-9 text-[#0A093D]">
+            Community Main Feature
+          </h1>
+          <p
+            class="lg:w-[421px] font-[400] text-base leading-[28px] text-[#656464]"
+          >
+            The wise man therefore always holds in these matters to this
+            principle of selection.
+          </p>
+        </div>
+      </div>
+      <div class="container flex justify-center pb-[80px]">
+        <div class="grid lg:grid-cols-2 grid-cols-1 gap-11">
+          <div
+            class="content flex lg:flex-row flex-col lg:justify-start justify-center lg:items-start items-center bg-[#FFFFFF] rounded-[14px] lg:w-[522px] hover:shadow-2xl"
+          >
+            <div class="logo mt-[40px] lg:ml-[40px]">
+              <img src="./assets/images/icon-blue.png" alt="" />
+            </div>
+            <div
+              class="member flex flex-col mt-[46px] lg:ml-[36px] mb-[43px] mr[65px] text-center lg:text-left"
+            >
+              <h1
+                class="font-[600] text-2xl leading-[24px] text-[#2F2C4A] mb-[14px]"
+              >
+                Members, Friend
+              </h1>
+              <h2
+                class="font-[400] text-base leading-[26px] text-[#656464] lg:w-[315px] lg:mx-0 mx-4"
+              >
+                Members, Friends Connection ( like followers ), Private Message
+              </h2>
+            </div>
+          </div>
+          <div
+            class="content flex lg:flex-row flex-col lg:justify-start justify-center lg:items-start items-center bg-[#FFFFFF] rounded-[14px] lg:w-[522px] hover:shadow-2xl"
+          >
+            <div class="logo mt-[40px] lg:ml-[40px]">
+              <img src="./assets/images/icon-red.png" alt="" />
+            </div>
+            <div
+              class="member flex flex-col mt-[46px] lg:ml-[36px] mb-[43px] mr[65px] text-center lg:text-left"
+            >
+              <h1
+                class="font-[600] text-2xl leading-[24px] text-[#2F2C4A] mb-[14px]"
+              >
+                Groups
+              </h1>
+              <h2
+                class="font-[400] text-base leading-[26px] text-[#656464] lg:w-[315px] lg:mx-0 mx-4"
+              >
+                Your users can create groups to let other users to join and talk
+              </h2>
+            </div>
+          </div>
+          <div
+            class="content flex lg:flex-row flex-col lg:justify-start justify-center lg:items-start items-center bg-[#FFFFFF] rounded-[14px] lg:w-[522px] hover:shadow-2xl"
+          >
+            <div class="logo mt-[40px] lg:ml-[40px]">
+              <img src="./assets/images/icon-chat.png" alt="" />
+            </div>
+            <div
+              class="member flex flex-col mt-[46px] lg:ml-[36px] mb-[43px] lg:mr[65px] text-center lg:text-left"
+            >
+              <h1
+                class="font-[600] text-2xl leading-[24px] text-[#2F2C4A] mb-[14px]"
+              >
+                Forum
+              </h1>
+              <h2
+                class="font-[400] text-base leading-[26px] text-[#656464] lg:w-[315px] lg:mx-0 mx-4"
+              >
+                Forum is ready by BBPress. Your users can make topics and talk.
+              </h2>
+            </div>
+          </div>
+          <div
+            class="content flex lg:flex-row flex-col lg:justify-start justify-center lg:items-start items-center bg-[#FFFFFF] rounded-[14px] lg:w-[522px] hover:shadow-2xl"
+          >
+            <div class="logo mt-[40px] lg:ml-[40px]">
+              <img src="./assets/images/icon-custom.png" alt="" />
+            </div>
+            <div
+              class="member flex flex-col mt-[46px] lg:ml-[36px] mb-[43px] lg:mr[65px] text-center lg:text-left"
+            >
+              <h1
+                class="font-[600] text-2xl leading-[24px] text-[#2F2C4A] mb-[14px]"
+              >
+                Custom Module
+              </h1>
+              <h2
+                class="font-[400] text-base leading-[26px] text-[#656464] lg:mx-0 mx-4"
+              >
+                You can create Members, Groups Module. We already created 3
+              </h2>
+            </div>
+          </div>
+          <div
+            class="content flex lg:flex-row flex-col lg:justify-start justify-center lg:items-start items-center bg-[#FFFFFF] rounded-[14px] lg:w-[522px] hover:shadow-2xl"
+          >
+            <div class="logo mt-[40px] lg:ml-[40px]">
+              <img src="./assets/images/icon-builder.png" alt="" />
+            </div>
+            <div
+              class="member flex flex-col mt-[46px] lg:ml-[36px] mb-[43px] lg:mr[65px] text-center lg:text-left"
+            >
+              <h1
+                class="font-[600] text-2xl leading-[24px] text-[#2F2C4A] mb-[14px]"
+              >
+                List Builder
+              </h1>
+              <h2
+                class="font-[400] text-base leading-[26px] text-[#656464] lg:w-[315px] lg:mx-0 mx-4"
+              >
+                Members, Groups list can be modified by drag & drop live
+                builder.
+              </h2>
+            </div>
+          </div>
+          <div
+            class="content flex lg:flex-row flex-col lg:justify-start justify-center lg:items-start items-center bg-[#FFFFFF] rounded-[14px] lg:w-[522px] hover:shadow-2xl"
+          >
+            <div class="logo mt-[40px] lg:ml-[40px]">
+              <img src="./assets/images/icon-scroll.png" alt="" />
+            </div>
+            <div
+              class="member flex flex-col mt-[46px] lg:ml-[36px] mb-[43px] lg:mr[65px] text-center lg:text-left"
+            >
+              <h1
+                class="font-[600] text-2xl leading-[24px] text-[#2F2C4A] mb-[14px]"
+              >
+                List Scroll Effect
+              </h1>
+              <h2
+                class="font-[400] text-base leading-[26px] text-[#656464] lg:w-[315px] lg:mx-0 mx-4"
+              >
+                8 different scroll effects are ready. You can change by your
+                tastes.
+              </h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="valuable">
+      <div class="container flex flex-col justify-center items-center">
+        <div class="valuable mt-[93px] text-center mb-[10px] lg:w-[454px]">
+          <h2
+            class="mb-[9px] font-[500]text-[18px] leading-[18px] text-[#217BF4] lg:mt-0 mt-10"
+          >
+            Valuable Team
+          </h2>
+          <h1 class="mb-[18px] font-[700] text-4xl leading-9 text-[#0A093D]">
+            Our Active Members
+          </h1>
+          <p class="font-[400] text-base leading-[28px] text-[#656464]">
+            when an unknown printer took a galley of type and meeting fari
+            scrambled it.
+          </p>
+        </div>
+        <div
+          class="card flex flex-row justify-between items-center bg-blues bg-opacity-5 pt-2 pr-2 pb-2 rounded-[14px] mt-[35px] mb-[47px]"
+        >
+          <div
+            class="ml-[8px] lg:px-[50px] lg:py-[20px] px-[30px] py-[10px] rounded-[14px] text-[#2F2C4A] hover:bg-blues hover:text-white"
+          >
+            <a
+              href="#"
+              class="font-[600px] text-base leading-4 tracking-{0.01em}"
+              >Newest</a
+            >
+          </div>
+          <div
+            class="ml-[8px] lg:px-[50px] lg:py-[20px] px-[30px] py-[10px] rounded-[14px] text-[#2F2C4A] hover:bg-blues hover:text-white"
+          >
+            <a
+              href="#"
+              class="font-[600px] text-base leading-4 tracking-{0.01em}"
+              >Popular</a
+            >
+          </div>
+          <div
+            class="ml-[8px] lg:px-[50px] lg:py-[20px] px-[30px] py-[10px] rounded-[14px] text-[#2F2C4A] hover:bg-blues hover:text-white"
+          >
+            <a
+              href="#"
+              class="font-[600px] text-base leading-4 tracking-{0.01em}"
+              >Active</a
+            >
+          </div>
+        </div>
+        <div class="grid lg:grid-cols-4 grid-cols-2 gap-[30px] mb-[84px]">
+          <div
+            class="rounded-[14px] px-[52px] pt-[30px] flex flex-col items-center border-[1px] hover:shadow-xl hover:scale-110"
+          >
+            <div class="profil">
+              <img src="./assets/images/profil-1.png" alt="" />
+            </div>
+            <div class="name mt-[29px]">
+              <h2 class="font-[600] text-2xl leading-[26px] text-[#2F2C4]">
+                Fahim Rahman
+              </h2>
+            </div>
+            <div class="username mt-[14px] mb-[30px]">
+              <h3 class="font-[400] text-base leading-[16px] text-[#656464]">
+                @rahman
+              </h3>
+            </div>
+          </div>
+          <div
+            class="rounded-[14px] px-[52px] pt-[30px] flex flex-col items-center border-[1px] hover:shadow-xl hover:scale-110"
+          >
+            <div class="profil">
+              <img src="./assets/images/profil-2.png" alt="" />
+            </div>
+            <div class="name mt-[29px]">
+              <h2 class="font-[600] text-2xl leading-[26px] text-[#2F2C4]">
+                Kazi Rahman
+              </h2>
+            </div>
+            <div class="username mt-[14px] mb-[30px]">
+              <h3 class="font-[400] text-base leading-[16px] text-[#656464]">
+                @rahman
+              </h3>
+            </div>
+          </div>
+          <div
+            class="rounded-[14px] px-[52px] pt-[30px] flex flex-col items-center border-[1px] hover:shadow-xl hover:scale-110"
+          >
+            <div class="profil">
+              <img src="./assets/images/profil-3.png" alt="" />
+            </div>
+            <div class="name mt-[29px]">
+              <h2 class="font-[600] text-2xl leading-[26px] text-[#2F2C4]">
+                Masterero Ali
+              </h2>
+            </div>
+            <div class="username mt-[14px] mb-[30px]">
+              <h3 class="font-[400] text-base leading-[16px] text-[#656464]">
+                @Master
+              </h3>
+            </div>
+          </div>
+          <div
+            class="rounded-[14px] px-[52px] pt-[30px] flex flex-col items-center border-[1px] hover:shadow-xl hover:scale-110"
+          >
+            <div class="profil">
+              <img src="./assets/images/profil-4.png" alt="" />
+            </div>
+            <div class="name mt-[29px]">
+              <h2 class="font-[600] text-2xl leading-[26px] text-[#2F2C4]">
+                Alia Karon
+              </h2>
+            </div>
+            <div class="username mt-[14px] mb-[30px]">
+              <h3 class="font-[400] text-base leading-[16px] text-[#656464]">
+                @rahman
+              </h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="mobil" class="bg-[#E5F0FD] mt-[46px]">
+      <div
+        class="container flex lg:flex-row flex-col justify-center items-center"
+      >
+        <div
+          class="w-1/2 pt-[122px] lg:block flex flex-col justify-center items-center"
+        >
+          <div class="community lg:text-left text-center">
+            <h2
+              class="mb-[10px] font-[500] text-[18px] leading-[18px] text-[#217BF4]"
+            >
+              Get Our Aplication
+            </h2>
+            <h1
+              class="mb-[18px] font-[700] text-4xl leading-9 text-[#0A093D] w-[351px]"
+            >
+              You Can Easily Find This App…!
+            </h1>
+            <p
+              class="font-[400] text-base leading-[28px] text-[#656464] w-[341px]"
+            >
+              I say chap that’s suing lavatory chip shop gosh off his smashing
+              boot are you taking the piss posh loo brilliant.
+            </p>
+            <div
+              class="flex flex-row justify-start items-center mt-[36px] gap-5"
+            >
+              <div class="">
+                <img src="./assets/images/appstore.png" alt="appstore" />
+              </div>
+              <div>
+                <img src="./assets/images/playstore.png" alt="playstore" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="w-1/2 mt-[44px]">
+          <div class="muckup">
+            <img src="./assets/images/mobile muckup.png" alt="" />
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="latest-news">
+      <div
+        class="container flex flex-col justify-center items-center mt-[96px]"
+      >
+        <div class="text-center">
+          <h2
+            class="font-[500]text-[18px] leading-[18px] text-[#217BF4] mt-[34px]"
+          >
+            Get Our Aplication
+          </h2>
+          <h1 class="mb-[90px] font-[700] text-4xl leading-9 text-[#0A093D]">
+            Latest News
+          </h1>
+        </div>
+        <div class="grid lg:grid-cols-3 grid-cols-1 gap-[75px] mb-[84px]">
+          <div class="flex flex-col items-center">
+            <div class="laptop">
+              <img src="./assets/images/laptop.png" alt="" />
+            </div>
+            <div class="flex flex-row">
+              <div
+                class="border-t-[2px] border-[#FFAF2E] w-[39px] mt-[46px] mr-[14px]"
+              ></div>
+              <div class="flex flex-col">
+                <div class="name mt-[20px]">
+                  <h2
+                    class="font-[600] text-[20px] leading-[32px] text-[#2F2C4] w-[273px]"
+                  >
+                    It Does Not Matter Hows Slowly go as Long
+                  </h2>
+                </div>
+                <div
+                  class="continue mt-[24px] flex flex-row items-center gap-2"
+                >
+                  <h3
+                    class="font-[400] text-base leading-[16px] text-[#656464]"
+                  >
+                    Continue Reading
+                  </h3>
+                  <img src="./assets/images/ArrowRight.png" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-col items-center">
+            <div class="laptop">
+              <img src="./assets/images/family.png" alt="" />
+            </div>
+            <div class="flex flex-row">
+              <div
+                class="border-t-[2px] border-[#FFAF2E] w-[39px] mt-[46px] mr-[14px]"
+              ></div>
+              <div class="flex flex-col">
+                <div class="name mt-[20px]">
+                  <h2
+                    class="font-[600] text-[20px] leading-[32px] text-[#2F2C4] w-[273px]"
+                  >
+                    Netbook Network Added New Photo Filter
+                  </h2>
+                </div>
+                <div
+                  class="continue mt-[24px] flex flex-row items-center gap-2"
+                >
+                  <h3
+                    class="font-[400] text-base leading-[16px] text-[#656464]"
+                  >
+                    Continue Reading
+                  </h3>
+                  <img src="./assets/images/ArrowRight.png" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-col items-center">
+            <div class="cheese">
+              <img src="./assets/images/cheese.png" alt="" />
+            </div>
+            <div class="flex flex-row">
+              <div
+                class="border-t-[2px] border-[#FFAF2E] w-[39px] mt-[46px] mr-[14px]"
+              ></div>
+              <div class="flex flex-col">
+                <div class="name mt-[20px]">
+                  <h2
+                    class="font-[600] text-[20px] leading-[32px] text-[#2F2C4] w-[273px]"
+                  >
+                    We Optimised Netbooks Better Navigation
+                  </h2>
+                </div>
+                <div
+                  class="continue mt-[24px] flex flex-row items-center gap-2"
+                >
+                  <h3
+                    class="font-[400] text-base leading-[16px] text-[#656464]"
+                  >
+                    Continue Reading
+                  </h3>
+                  <img src="./assets/images/ArrowRight.png" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="footer" class="bg-[#2B2B39]">
+      <div class="container">
+        <div class="flex lg:flex-row flex-col">
+          <div
+            class="left flex flex-row flex-wrap lg:justify-between justify-center items-center lg:gap-0 gap-24 lg:w-[668px] lg:pt-0 pt-5"
+          >
+            <div class="home">
+              <div class="mb-[22px] lg:text-left text-center">
+                <h4 class="font-[500] text-xl leading[20px] text-[#FFFFFF]">
+                  Home
+                </h4>
+              </div>
+              <div
+                class="lg:text-left text-center h-[184px] font-[400px] text-[16px] leading-[46px] tracking-{0.0125} text-[#E7E7E7]"
+              >
+                <p>Home</p>
+                <p>Community</p>
+                <p>Events</p>
+                <p>Contact</p>
+              </div>
+            </div>
+
+            <div class="resource">
+              <div class="mb-[22px] lg:text-left text-center">
+                <h4 class="font-[500] text-xl leading[20px] text-[#FFFFFF]">
+                  Resource
+                </h4>
+              </div>
+              <div
+                class="lg:text-left text-center h-[184px] font-[400px] text-[16px] leading-[46px] tracking-{0.0125} text-[#E7E7E7]"
+              >
+                <p>Blog</p>
+                <p>News</p>
+                <p>Guides</p>
+                <p>Help Center</p>
+              </div>
+            </div>
+
+            <div class="Community">
+              <div class="mb-[22px] lg:text-left text-center">
+                <h4 class="font-[500] text-xl leading[20px] text-[#FFFFFF]">
+                  Community
+                </h4>
+              </div>
+              <div
+                class="lg:text-left text-center h-[184px] font-[400px] text-[16px] leading-[46px] tracking-{0.0125} text-[#E7E7E7]"
+              >
+                <p>NewsFeed</p>
+                <p>Profile</p>
+                <p>Friends</p>
+                <p>Forums</p>
+              </div>
+            </div>
+
+            <div class="main-link">
+              <div class="mb-[22px] lg:text-left text-center">
+                <h4 class="font-[500] text-xl leading[20px] text-[#FFFFFF]">
+                  Main links
+                </h4>
+              </div>
+              <div
+                class="lg:text-left text-center h-[184px] font-[400px] text-[16px] leading-[46px] tracking-{0.0125} text-[#E7E7E7]"
+              >
+                <p>Members</p>
+                <p>Activity</p>
+                <p>Groups</p>
+                <p>Private Group</p>
+              </div>
+            </div>
+          </div>
+          <div
+            class="right lg:ml-[163px] lg:mt-[78px] flex flex-col justify-center items-center pb-[97px] lg:pt-0 pt-10"
+          >
+            <div class="subscribe">
+              <div class="mb-[18px] lg:text-left text-center">
+                <h4
+                  class="font-[500] text-xl leading[32px] text-[#FFFFFF] lg:w-[179px]"
+                >
+                  Subscribe Cirkle Newsletter
+                </h4>
+              </div>
+              <div
+                class="font-[400px] text-[16px] leading-[28px] text-[#E7E7E7] lg:w-[299px] lg:text-left text-center"
+              >
+                <p>
+                  Subscribe to be the first one to know about updates. Enter
+                  your email
+                </p>
+              </div>
+              <div
+                class="button border-[1px] border-white rounded-[12px] mt-[32px]"
+              >
+                <form action="#">
+                  <div class="flex flex-row justify-between items-center">
+                    <div>
+                      <input
+                        type="text"
+                        class="w-[120px] h-[12px] font-[400] text-[14px] leading-[12px] tracking-{0.0125} bg-transparent ml-[24px] border-0"
+                        placeholder="Email Address"
+                      />
+                    </div>
+                    <div class="">
+                      <button
+                        type="submit"
+                        class="px-[16px] py-3 bg-white hover:bg-slate-200 rounded-[12px] font-[500] text-[16px] leading-[16px]"
+                      >
+                        Subscribe
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="footer-2" class="bg-[#20202D]">
+      <div
+        class="container flex flex-row flex-wrap justify-between items-center"
+      >
+        <div class="left">
+          <p class="font-[400] text-[14px] leading-[14px] text-[#F6F6F6]">
+            Besnik Creative Agency.
+          </p>
+        </div>
+        <div class="center pt-[30px] pb-[30px]">
+          <img src="./assets/images/logo-2.png" alt="" />
+        </div>
+        <div class="right lg:pb-0 pb-3">
+          <img src="./assets/images/social-icon.png" alt="" />
+        </div>
+      </div>
+    </section>
+    <script src="https://unpkg.com/flowbite@1.5.4/dist/flowbite.js"></script>
+  </body>
+</html>
